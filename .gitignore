@@ -1,0 +1,17 @@
+node_modules/
+backend/node_modules/
+.env
+backend/.env
+*.db
+*.db-shm
+*.db-wal
+
+# Local backups and test files
+backend/*backup*
+backend/*backup*.*
+backend/*.save
+backend/*test*
+backend/server-before-*.js
+backend/server.before-*.js
+backend/create-admin.js 
+backend/create-admin.js\ 

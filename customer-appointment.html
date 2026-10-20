@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Appointment | Glow Beauty Salon</title>
+
+    <link
+        rel="stylesheet"
+        href="/customer-appointment.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="appointment-page">
+
+        <section class="appointment-card">
+
+
+            <!-- ================================= -->
+            <!-- BRAND -->
+            <!-- ================================= -->
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ✦
+                </div>
+
+                <h1>
+                    Glow Beauty Salon
+                </h1>
+
+                <p>
+                    Manage Your Appointment
+                </p>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- SEARCH AREA -->
+            <!-- ================================= -->
+
+            <div id="searchSection">
+
+                <h2>
+                    Check Appointment
+                </h2>
+
+                <p class="description">
+                    Enter your Booking ID to view and manage your appointment.
+                </p>
+
+
+                <form id="appointmentForm">
+
+
+                    <!-- BOOKING ID -->
+
+                    <label for="bookingId">
+                        Booking ID
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="bookingId"
+                        placeholder="Example: 13"
+                        min="1"
+                        required
+                    >
+
+
+                    <!-- CHECK BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="checkBtn"
+                    >
+                        Check Appointment
+                    </button>
+
+
+                </form>
+
+
+                <div
+                    id="searchMessage"
+                    class="message"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ================================= -->
+            <!-- APPOINTMENT DETAILS -->
+            <!-- ================================= -->
+
+            <section
+                id="bookingSection"
+                class="booking-section hidden"
+            >
+
+
+                <!-- HEADER -->
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="small-title">
+                            APPOINTMENT DETAILS
+                        </span>
+
+                        <h2>
+                            Your Booking
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="newSearchBtn"
+                        class="secondary-btn"
+                        type="button"
+                    >
+                        New Search
+                    </button>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- STATUS -->
+                <!-- ================================= -->
+
+                <div class="status-box">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="bookingStatus">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- BOOKING DETAILS -->
+                <!-- ================================= -->
+
+                <div class="details-grid">
+
+
+                    <div class="detail">
+
+                        <span>
+                            🆔 Booking ID
+                        </span>
+
+                        <strong id="detailId">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <span>
+                            👤 Name
+                        </span>
+
+                        <strong id="detailName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <span>
+                            💇 Service
+                        </span>
+
+                        <strong id="detailService">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <span>
+                            💰 Price
+                        </span>
+
+                        <strong id="detailPrice">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <span>
+                            📅 Date
+                        </span>
+
+                        <strong id="detailDate">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="detail">
+
+                        <span>
+                            ⏰ Time
+                        </span>
+
+                        <strong id="detailTime">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- RESCHEDULE AREA -->
+                <!-- ================================= -->
+
+                <div
+                    id="rescheduleArea"
+                    class="reschedule-area"
+                >
+
+
+                    <div class="reschedule-header">
+
+                        <h3>
+                            📅 Reschedule Appointment
+                        </h3>
+
+                        <p>
+                            Choose a new date and time for your appointment.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- DATE + TIME -->
+
+                    <div class="reschedule-fields">
+
+
+                        <div class="field-group">
+
+                            <label for="newDate">
+                                New Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="newDate"
+                            >
+
+                        </div>
+
+
+
+                        <div class="field-group">
+
+                            <label for="newTime">
+                                New Time
+                            </label>
+
+
+                            <select id="newTime">
+
+                                <option value="">
+                                    Select time
+                                </option>
+
+                                <option value="09:00">
+                                    09:00 AM
+                                </option>
+
+                                <option value="10:00">
+                                    10:00 AM
+                                </option>
+
+                                <option value="11:00">
+                                    11:00 AM
+                                </option>
+
+                                <option value="11:30">
+                                    11:30 AM
+                                </option>
+
+                                <option value="12:00">
+                                    12:00 PM
+                                </option>
+
+                                <option value="13:00">
+                                    01:00 PM
+                                </option>
+
+                                <option value="14:00">
+                                    02:00 PM
+                                </option>
+
+                                <option value="15:00">
+                                    03:00 PM
+                                </option>
+
+                                <option value="16:00">
+                                    04:00 PM
+                                </option>
+
+                                <option value="17:00">
+                                    05:00 PM
+                                </option>
+
+                                <option value="18:00">
+                                    06:00 PM
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CHECK SLOT -->
+
+                    <button
+                        type="button"
+                        id="checkSlotBtn"
+                        class="check-slot-btn"
+                    >
+                        🔎 Check New Slot
+                    </button>
+
+
+
+                    <div
+                        id="slotMessage"
+                        class="slot-message"
+                    ></div>
+
+
+
+                    <!-- CONFIRM RESCHEDULE -->
+
+                    <button
+                        type="button"
+                        id="rescheduleBtn"
+                        class="reschedule-btn hidden"
+                    >
+                        ✅ Confirm Reschedule
+                    </button>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- CANCEL AREA -->
+                <!-- ================================= -->
+
+                <div
+                    id="cancelArea"
+                    class="cancel-area"
+                >
+
+
+                    <button
+                        id="cancelBtn"
+                        class="cancel-btn"
+                        type="button"
+                    >
+                        Cancel Appointment
+                    </button>
+
+
+                    <p>
+                        Cancellation changes the appointment status.
+                        It does not delete the booking record.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- BOOKING MESSAGE -->
+                <!-- ================================= -->
+
+                <div
+                    id="bookingMessage"
+                    class="message"
+                ></div>
+
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ================================= -->
+
+    <script src="/customer-appointment.js"></script>
+
+</body>
+
+</html>

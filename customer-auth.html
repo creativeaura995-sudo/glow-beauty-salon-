@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Customer Account | Glow Beauty Salon</title>
+
+    <link
+        rel="stylesheet"
+        href="customer-auth.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="auth-header">
+
+        <a href="/" class="logo">
+            Glow ✨
+        </a>
+
+        <a href="/" class="back-home">
+            ← Back to Home
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================
+         AUTH CONTAINER
+    ========================== -->
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+
+            <!-- =========================
+                 BRAND
+            ========================== -->
+
+            <div class="auth-brand">
+
+                <div class="brand-icon">
+                    ✨
+                </div>
+
+                <h1>
+                    Glow Beauty Salon
+                </h1>
+
+                <p>
+                    Manage your appointments easily
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 TABS
+            ========================== -->
+
+            <div class="auth-tabs">
+
+                <button
+                    type="button"
+                    id="loginTab"
+                    class="auth-tab active"
+                >
+                    Login
+                </button>
+
+                <button
+                    type="button"
+                    id="registerTab"
+                    class="auth-tab"
+                >
+                    Create Account
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MESSAGE
+            ========================== -->
+
+            <div
+                id="authMessage"
+                class="auth-message"
+            ></div>
+
+
+
+            <!-- =========================
+                 LOGIN FORM
+            ========================== -->
+
+            <form
+                id="loginForm"
+                class="auth-form"
+            >
+
+                <div class="form-group">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                    id="loginButton"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+
+            <!-- =========================
+                 REGISTER FORM
+            ========================== -->
+
+            <form
+                id="registerForm"
+                class="auth-form hidden"
+            >
+
+                <div class="form-group">
+
+                    <label for="registerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="registerEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="registerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="registerPhone"
+                        placeholder="Enter your phone number"
+                        autocomplete="tel"
+                        inputmode="numeric"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Minimum 8 characters"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Enter password again"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                    id="registerButton"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+
+            <!-- =========================
+                 INFO
+            ========================== -->
+
+            <div class="auth-info">
+
+                <p>
+                    🔐 Your account is protected.
+                </p>
+
+                <p>
+                    After login, you will be able to
+                    manage your appointments.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script src="customer-auth.js"></script>
+
+</body>
+
+</html>
