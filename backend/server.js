@@ -11,7 +11,10 @@ const validator = require("validator");
 const { DatabaseSync } = require("node:sqlite");
 
 const app = express();
-const PORT = 3000;
+if (process.env.NODE_ENV === "production") {
+    app.set("trust proxy", 1);
+}
+const PORT = process.env.PORT || 3000;
 
 // ===============================
 // DATABASE
@@ -55,7 +58,7 @@ app.use(
         saveUninitialized: false,
         cookie: {
             httpOnly: true,
-            secure: false,
+           secure: process.env.NODE_ENV === "production", 
             sameSite: "lax"
         }
     })
@@ -116,21 +119,57 @@ app.get("/admin.html", function(req, res) {
     );
 });
 
-// ===============================
-// USERS TABLE CHECK
-// ===============================
+/* ===============================
+   DATABASE TABLES
+   =============================== */
 
+// Users table
 db.exec(`
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
-        role TEXT NOT NULL DEFAULT 'customer'
+        role TEXT NOT NULL DEFAULT 'customer',
+        phone TEXT
     )
 `);
 
-console.log("Users table ready!");
+// Safely add phone column to older users tables
+const userColumns = db.prepare(
+    "PRAGMA table_info(users)"
+).all();
+
+if (!userColumns.some(column => column.name === "phone")) {
+    db.exec("ALTER TABLE users ADD COLUMN phone TEXT");
+}
+
+// Customers table
+db.exec(`
+    CREATE TABLE IF NOT EXISTS customers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        phone TEXT NOT NULL,
+        email TEXT
+    )
+`);
+
+// Appointments table
+db.exec(`
+    CREATE TABLE IF NOT EXISTS bookings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        customer_id INTEGER NOT NULL,
+        service TEXT NOT NULL,
+        date TEXT NOT NULL,
+        time TEXT NOT NULL,
+        price REAL NOT NULL,
+        status TEXT NOT NULL DEFAULT 'Confirmed',
+        FOREIGN KEY (customer_id) REFERENCES customers(id)
+    )
+`);
+
+console.log("Users, customers and bookings tables ready!");
+
 
 // ===============================
 // HELPERS
