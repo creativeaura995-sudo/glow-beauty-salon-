@@ -168,6 +168,29 @@ db.exec(`
     )
 `);
 
+// Create admin account from Render environment variables
+if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+    const adminEmail = process.env.ADMIN_EMAIL.trim().toLowerCase();
+    const adminPassword = process.env.ADMIN_PASSWORD;
+
+    const existingAdmin = db.prepare(
+        "SELECT id, role FROM users WHERE email = ?"
+    ).get(adminEmail);
+
+    if (!existingAdmin) {
+        const hashedPassword = bcrypt.hashSync(adminPassword, 12);
+
+        db.prepare(`
+            INSERT INTO users (name, email, password, role)
+            VALUES (?, ?, ?, ?)
+        `).run("Admin", adminEmail, hashedPassword, "admin");
+
+        console.log("Admin account created from environment variables.");
+    } else if (existingAdmin.role !== "admin") {
+        console.error("ADMIN_EMAIL belongs to a non-admin user.");
+    }
+}
+
 console.log("Users, customers and bookings tables ready!");
 
 
